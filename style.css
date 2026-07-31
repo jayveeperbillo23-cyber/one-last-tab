@@ -180,3 +180,27 @@ transform:translateY(0);
 }
 
 }
+
+#hint{
+    opacity:0;
+    transition:opacity .6s ease;
+    margin-top:60px;
+    color:#999;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+#hint.show{
+    opacity:1;
+}
+
+.container{
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(15px);
+}
