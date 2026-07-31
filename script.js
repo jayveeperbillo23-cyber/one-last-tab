@@ -1,164 +1,56 @@
+// ======================================
+// PROJECT LILAC
+// Story Data
+// ======================================
+
 const chapters = [
-    {
-        chapter: "Chapter I",
-        title: "Hi, Tiffany.",
-        text: "Thank you for being here."
-    },
 
-    {
-        chapter: "Chapter II",
-        title: "I wasn't sure if I should do this.",
-        text: "But if I never did...\n\nI'd probably regret it."
-    },
+{
+chapter:"Chapter I",
+title:"Hi, Tiffany.",
+text:"Thank you for being here."
+},
 
-    {
-        chapter: "Chapter III",
-        title: "I don't know\nexactly\nwhen it happened.\n\nOne day...\n\nI just realized...\n\nI looked forward\nto seeing you."
-    },
+{
+chapter:"Chapter II",
+title:"I wasn't sure if I should do this.",
+text:"But if I never did...\n\nI'd probably regret it."
+},
 
-    {
-        chapter: "Chapter IV",
-        title: "You probably\nnever noticed.",
-        text: "But\n\nyou became\n\npart of\n\nmy ordinary days."
-    },
+{
+chapter:"Chapter III",
+title:"I don't know\nexactly\nwhen it happened.",
+text:"One day...\n\nI just realized...\n\nI looked forward\nto seeing you."
+},
 
-    {
-        chapter: "Chapter V",
-        title: "It wasn't\n\njust your smile.",
-        text: "...\n\nOr your laugh.\n\n...\n\nOr your kindness.\n\n...\n\nIt was...\n\nyou."
-    },
+{
+chapter:"Chapter IV",
+title:"You probably\nnever noticed.",
+text:"But...\n\nyou became\n\npart of\n\nmy ordinary days."
+},
 
-    {
-        chapter: "",
-        title: "I like you.",
-        text: "And...\n\nthat's the truth."
-    },
+{
+chapter:"Chapter V",
+title:"It wasn't\n\njust your smile.",
+text:"Or your laugh.\n\nOr your kindness.\n\nIt was...\n\nyou."
+},
 
-    {
-        chapter: "",
-        title: "Whether\n\nthis changes\n\nanything...\n\nor not...",
-        text: "I'm still glad\n\nI told you."
-    },
+{
+chapter:"",
+title:"I like you.",
+text:"And...\n\nthat's the truth."
+},
 
-    {
-        chapter: "",
-        title: "Thank you...",
-        text: "for reading\n\nmy heart."
-    },
+{
+chapter:"",
+title:"Thank you...",
+text:"for listening to mine."
+},
 
-    {
-        chapter: "",
-        title: "With sincerity,",
-        text: "— Jayvee\n\n\nSome feelings deserve honesty,\neven without certainty."
-    }
+{
+chapter:"",
+title:"With sincerity,",
+text:"— Jayvee"
+}
+
 ];
-
-let currentChapter = 0;
-let isTyping = false;
-
-const chapterEl = document.getElementById("chapter");
-const titleEl = document.getElementById("title");
-const subtitleEl = document.getElementById("subtitle");
-const hintEl = document.getElementById("hint");
-
-const title = document.getElementById("title");
-const subtitle = document.getElementById("subtitle");
-const button = document.getElementById("continueBtn");
-
-const titleText = "Hi, Tiffany.";
-const subtitleText = "Thank you for being here.";
-
-title.textContent = "";
-subtitle.textContent = "";
-button.style.opacity = "0";
-button.style.pointerEvents = "none";
-
-function typeText(element, text, speed, callback) {
-    let i = 0;
-
-    function typing() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-        } else if (callback) {
-            callback();
-        }
-    }
-
-    typing();
-}
-
-setTimeout(() => {
-
-    typeText(title, titleText, 90, () => {
-
-        setTimeout(() => {
-
-            typeText(subtitle, subtitleText, 45, () => {
-
-                setTimeout(() => {
-
-                    button.style.transition = "opacity .8s";
-                    button.style.opacity = "1";
-                    button.style.pointerEvents = "auto";
-
-                },600);
-
-            });
-
-        },500);
-
-    });
-
-},700);
-
-function showChapter(index){
-
-const page = chapters[index];
-
-chapterEl.textContent = page.chapter;
-typeWriter(titleEl, page.title, 65, () => {
-
-    typeWriter(subtitleEl, page.text, 35, () => {
-
-        hintEl.classList.add("show");
-
-        isTyping = false;
-
-    });
-
-});
-
-
-document.body.addEventListener("click", () => {
-
-    if(isTyping) return;
-
-    if(currentChapter < chapters.length-1){
-
-        currentChapter++;
-
-        showChapter(currentChapter);
-
-    }
-
-});
-
-function typeWriter(element, text, speed, callback) {
-    element.textContent = "";
-
-    let i = 0;
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else {
-            if (callback) callback();
-        }
-    }
-
-    type();
-}
