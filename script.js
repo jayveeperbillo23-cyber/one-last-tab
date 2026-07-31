@@ -115,4 +115,10 @@ setTimeout(() => {
 
 function showChapter(index){
 
+const page = chapters[index];
+
+chapterEl.textContent = page.chapter;
+titleEl.textContent = page.title;
+subtitleEl.textContent = page.text;
+
 }
