@@ -118,7 +118,47 @@ function showChapter(index){
 const page = chapters[index];
 
 chapterEl.textContent = page.chapter;
-titleEl.textContent = page.title;
-subtitleEl.textContent = page.text;
+typeWriter(titleEl, page.title, 65, () => {
 
+    typeWriter(subtitleEl, page.text, 35, () => {
+
+        hintEl.classList.add("show");
+
+        isTyping = false;
+
+    });
+
+});
+
+
+document.body.addEventListener("click", () => {
+
+    if(isTyping) return;
+
+    if(currentChapter < chapters.length-1){
+
+        currentChapter++;
+
+        showChapter(currentChapter);
+
+    }
+
+});
+
+function typeWriter(element, text, speed, callback) {
+    element.textContent = "";
+
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            if (callback) callback();
+        }
+    }
+
+    type();
 }
