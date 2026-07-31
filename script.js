@@ -112,3 +112,7 @@ setTimeout(() => {
     });
 
 },700);
+
+function showChapter(index){
+
+}
