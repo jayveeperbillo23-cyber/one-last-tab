@@ -53,6 +53,14 @@ const chapters = [
     }
 ];
 
+let currentChapter = 0;
+let isTyping = false;
+
+const chapterEl = document.getElementById("chapter");
+const titleEl = document.getElementById("title");
+const subtitleEl = document.getElementById("subtitle");
+const hintEl = document.getElementById("hint");
+
 const title = document.getElementById("title");
 const subtitle = document.getElementById("subtitle");
 const button = document.getElementById("continueBtn");
