@@ -128,6 +128,11 @@ function updateProgress(){
 
 function showChapter(index){
 
+    const container = document.querySelector(".container");
+
+    container.classList.remove("fade-in");
+    container.classList.add("fade-out");
+    
     isTyping = true;
 
     hintEl.classList.remove("show");
@@ -142,6 +147,13 @@ function showChapter(index){
         typeWriter(subtitleEl, page.text, 35, () => {
 
     setTimeout(() => {
+
+        setTimeout(() => {
+
+    container.classList.remove("fade-out");
+    container.classList.add("fade-in");
+
+}, 500);
 
         hintEl.classList.add("show");
         isTyping = false;
