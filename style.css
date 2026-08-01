@@ -197,10 +197,12 @@ transform:translateY(0);
 .container{
     transition:
         opacity .45s ease,
-        transform .45s ease;
+        transform .45s ease,
+        filter .45s ease;
 }
 
-.fade{
+.container.fade{
     opacity:0;
     transform:translateY(15px);
+    filter:blur(5px);
 }
