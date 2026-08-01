@@ -61,6 +61,7 @@ text:"— Jayvee"
 
 let currentChapter = 0;
 let isTyping = false;
+let isTransitioning = false;
 
 const chapterEl = document.getElementById("chapter");
 const titleEl = document.getElementById("title");
@@ -134,7 +135,7 @@ function showChapter(index){
 
 document.body.addEventListener("click", () => {
 
-    if (isTyping) return;
+    if (isTyping || isTransitioning) return;
 
     if (currentChapter >= chapters.length - 1) return;
 
@@ -147,6 +148,7 @@ document.body.addEventListener("click", () => {
         showChapter(currentChapter);
 
         container.classList.remove("fade");
+        isTransitioning = false;
 
     }, 450);
 
