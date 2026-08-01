@@ -132,6 +132,12 @@ function showChapter(index){
 
     hintEl.classList.remove("show");
 
+setTimeout(() => {
+
+    titleEl.textContent = "";  
+    subtitleEl.textContent = "";     
+    chapterEl.textContent = "";
+
     const page = chapters[index];
 
     updateProgress();
