@@ -62,6 +62,7 @@ text:"— Jayvee"
 let currentChapter = 0;
 let isTyping = false;
 let isTransitioning = false;
+let typingTimeout;
 
 const chapterEl = document.getElementById("chapter");
 const titleEl = document.getElementById("title");
@@ -89,7 +90,7 @@ function typeWriter(element, text, speed, callback) {
 
             i++;
 
-            setTimeout(type, speed);
+            typingTimeout =  setTimeout(type, speed);
 
         } else {
 
@@ -132,22 +133,24 @@ function showChapter(index){
 
     hintEl.classList.remove("show");
 
-setTimeout(() => {
-
-    titleEl.textContent = "";  
-    subtitleEl.textContent = "";     
-    chapterEl.textContent = "";
-
-    const page = chapters[index];
-
-    updateProgress();
-
-    chapterEl.textContent = page.chapter;
-
     container.classList.remove("fade-in");
     container.classList.add("fade-out");
 
     setTimeout(() => {
+
+        const page = chapters[index];
+
+        // Clear old content
+        chapterEl.textContent = "";
+        titleEl.textContent = "";
+        subtitleEl.textContent = "";
+
+        updateProgress();
+
+        chapterEl.textContent = page.chapter;
+
+        container.classList.remove("fade-out");
+        container.classList.add("fade-in");
 
         typeWriter(titleEl, page.title, 65, () => {
 
@@ -162,21 +165,17 @@ setTimeout(() => {
                         hintEl.classList.add("show");
                         isTyping = false;
 
-                    }, 1500);
+                    },1500);
 
                 });
 
-            }, delay);
+            },delay);
 
         });
 
-        container.classList.remove("fade-out");
-        container.classList.add("fade-in");
-
-    }, 500);
+    },500);
 
 }
-
 
 
 // ======================================
@@ -191,17 +190,18 @@ document.body.addEventListener("click", () => {
 
     isTransitioning = true;
 
+    currentChapter++;
+
+    showChapter(currentChapter);
+
     setTimeout(() => {
-
-        currentChapter++;
-
-        showChapter(currentChapter);
 
         isTransitioning = false;
 
-    }, 450);
+    },500);
 
 });
+
 // ======================================
 // Start
 // ======================================
