@@ -164,22 +164,25 @@ function showChapter(index){
                     setTimeout(() => {
 
                        if(index < chapters.length - 1){
+
     hintEl.classList.add("show");
+    isTyping = false;
+
+}else{
+
+    setTimeout(() => {
+
+        container.classList.add("fade-out");
+
+        setTimeout(() => {
+
+            endingMessage.classList.add("show");
+
+        },1000);
+
+    },2500);
+
 }
-
-isTyping = false;
-                    },1500);
-
-                });
-
-            },delay);
-
-        });
-
-    },500);
-
-}
-
 
 // ======================================
 // Next Chapter
