@@ -66,6 +66,7 @@ const chapterEl = document.getElementById("chapter");
 const titleEl = document.getElementById("title");
 const subtitleEl = document.getElementById("subtitle");
 const hintEl = document.getElementById("hint");
+const container = document.querySelector(".container");
 
 // ======================================
 // Typewriter
