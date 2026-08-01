@@ -142,13 +142,26 @@ function showChapter(index){
 
     chapterEl.textContent = page.chapter;
 
-    typeWriter(titleEl, page.title, 60, () => {
+    typeWriter(titleEl, page.title, 65, () => {
 
-        typeWriter(subtitleEl, page.text, 35, () => {
+    const delay = page.title === "I like you." ? 1800 : 500;
 
     setTimeout(() => {
 
-        setTimeout(() => {
+        typeWriter(subtitleEl, page.text, 35, () => {
+
+            setTimeout(() => {
+
+                hintEl.classList.add("show");
+                isTyping = false;
+
+            }, 1500);
+
+        });
+
+    }, delay);
+
+});
 
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
