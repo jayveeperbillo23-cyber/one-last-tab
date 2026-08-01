@@ -98,3 +98,53 @@ function typeWriter(element, text, speed, callback) {
     type();
 
 }
+
+// ======================================
+// Show Chapter
+// ======================================
+
+function showChapter(index){
+
+    isTyping = true;
+
+    hintEl.classList.remove("show");
+
+    const page = chapters[index];
+
+    chapterEl.textContent = page.chapter;
+
+    typeWriter(titleEl, page.title, 60, () => {
+
+        typeWriter(subtitleEl, page.text, 30, () => {
+
+            isTyping = false;
+
+            hintEl.classList.add("show");
+
+        });
+
+    });
+
+}
+
+// ======================================
+// Next Chapter
+// ======================================
+
+document.body.addEventListener("click", () => {
+
+    if(isTyping) return;
+
+    if(currentChapter >= chapters.length - 1) return;
+
+    currentChapter++;
+
+    showChapter(currentChapter);
+
+});
+
+// ======================================
+// Start
+// ======================================
+
+showChapter(currentChapter);
