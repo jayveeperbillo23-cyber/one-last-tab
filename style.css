@@ -199,12 +199,6 @@ transform:translateY(0);
     opacity:1;
 }
 
-.container{
-    transition:
-        opacity .45s ease,
-        transform .45s ease,
-        filter .45s ease;
-}
 
 #title,
 #subtitle{
