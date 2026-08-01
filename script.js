@@ -54,3 +54,47 @@ text:"— Jayvee"
 }
 
 ];
+
+// ======================================
+// Variables
+// ======================================
+
+let currentChapter = 0;
+let isTyping = false;
+
+const chapterEl = document.getElementById("chapter");
+const titleEl = document.getElementById("title");
+const subtitleEl = document.getElementById("subtitle");
+const hintEl = document.getElementById("hint");
+
+// ======================================
+// Typewriter
+// ======================================
+
+function typeWriter(element, text, speed, callback) {
+
+    element.textContent = "";
+
+    let i = 0;
+
+    function type() {
+
+        if (i < text.length) {
+
+            element.textContent += text.charAt(i);
+
+            i++;
+
+            setTimeout(type, speed);
+
+        } else {
+
+            if (callback) callback();
+
+        }
+
+    }
+
+    type();
+
+}
