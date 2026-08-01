@@ -139,17 +139,17 @@ function showChapter(index){
 
     typeWriter(titleEl, page.title, 60, () => {
 
-        typeWriter(subtitleEl, page.text, 30, () => {
+        typeWriter(subtitleEl, page.text, 35, () => {
 
-            isTyping = false;
+    setTimeout(() => {
 
-            hintEl.classList.add("show");
+        hintEl.classList.add("show");
+        isTyping = false;
 
-        });
+    }, 1500);
 
-    });
+});
 
-}
 
 // ======================================
 // Next Chapter
