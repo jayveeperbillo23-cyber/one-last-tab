@@ -201,12 +201,6 @@ transform:translateY(0);
         filter .45s ease;
 }
 
-.container.fade{
-    opacity:0;
-    transform:translateY(15px);
-    filter:blur(5px);
-}
-
 #title,
 #subtitle{
     white-space:pre-line;
