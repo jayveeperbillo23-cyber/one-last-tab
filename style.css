@@ -230,3 +230,19 @@ transform:translateY(0);
     letter-spacing:8px;
 
 }
+.fade-out{
+
+    opacity:0;
+
+    transition:opacity .5s ease;
+
+}
+
+.fade-in{
+
+    opacity:1;
+
+    transition:opacity .5s ease;
+
+}
+
