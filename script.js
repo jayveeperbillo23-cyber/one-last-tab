@@ -162,9 +162,11 @@ function showChapter(index){
 
                     setTimeout(() => {
 
-                        hintEl.classList.add("show");
-                        isTyping = false;
+                       if(index < chapters.length - 1){
+    hintEl.classList.add("show");
+}
 
+isTyping = false;
                     },1500);
 
                 });
