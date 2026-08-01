@@ -200,4 +200,8 @@ document.body.addEventListener("click", () => {
 // Start
 // ======================================
 
-showChapter(currentChapter);
+setTimeout(() => {
+
+    showChapter(currentChapter);
+
+}, 800);
