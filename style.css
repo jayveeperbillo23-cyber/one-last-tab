@@ -183,7 +183,7 @@ transform:translateY(0);
 
 #hint{
     opacity:0;
-    transition:opacity .6s ease;
+    transition:opacity .5s ease;
     margin-top:60px;
     color:#999;
     letter-spacing:2px;
