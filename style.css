@@ -20,7 +20,11 @@ body{
     font-family:'Inter',sans-serif;
 
     overflow:hidden;
+    -webkit-tap-highlight-color:  transparent;
 
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
 }
 
 /* Soft paper background */
@@ -188,6 +192,7 @@ transform:translateY(0);
     color:#999;
     letter-spacing:2px;
     cursor:pointer;
+    user-select:none;
 }
 
 #hint.show{
@@ -239,4 +244,11 @@ transform:translateY(0);
     transition:opacity .5s ease;
 
 }
+
+::selection{
+    background:#C8A96A;
+    color:white;
+}
+
+
 
