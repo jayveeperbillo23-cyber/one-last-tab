@@ -134,13 +134,21 @@ function showChapter(index){
 
 document.body.addEventListener("click", () => {
 
-    if(isTyping) return;
+    if (isTyping) return;
 
-    if(currentChapter >= chapters.length - 1) return;
+    if (currentChapter >= chapters.length - 1) return;
 
-    currentChapter++;
+    container.classList.add("fade");
 
-    showChapter(currentChapter);
+    setTimeout(() => {
+
+        currentChapter++;
+
+        showChapter(currentChapter);
+
+        container.classList.remove("fade");
+
+    }, 450);
 
 });
 
