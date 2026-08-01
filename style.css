@@ -211,3 +211,16 @@ transform:translateY(0);
 #subtitle{
     white-space:pre-line;
 }
+
+.typing::after{
+    content:"|";
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
+
+}
