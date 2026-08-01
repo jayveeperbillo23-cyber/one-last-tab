@@ -128,52 +128,49 @@ function updateProgress(){
 
 function showChapter(index){
 
-    const container = document.querySelector(".container");
-
-    container.classList.remove("fade-in");
-    container.classList.add("fade-out");
-    
     isTyping = true;
 
     hintEl.classList.remove("show");
 
     const page = chapters[index];
+
     updateProgress();
 
     chapterEl.textContent = page.chapter;
 
-    typeWriter(titleEl, page.title, 65, () => {
-
-    const delay = page.title === "I like you." ? 1800 : 500;
+    container.classList.remove("fade-in");
+    container.classList.add("fade-out");
 
     setTimeout(() => {
 
-        typeWriter(subtitleEl, page.text, 35, () => {
+        typeWriter(titleEl, page.title, 65, () => {
+
+            const delay = page.title === "I like you." ? 1800 : 500;
 
             setTimeout(() => {
 
-                hintEl.classList.add("show");
-                isTyping = false;
+                typeWriter(subtitleEl, page.text, 35, () => {
 
-            }, 1500);
+                    setTimeout(() => {
+
+                        hintEl.classList.add("show");
+                        isTyping = false;
+
+                    }, 1500);
+
+                });
+
+            }, delay);
 
         });
 
-    }, delay);
+        container.classList.remove("fade-out");
+        container.classList.add("fade-in");
 
-});
+    }, 500);
 
-    container.classList.remove("fade-out");
-    container.classList.add("fade-in");
+}
 
-}, 500);
-
-        hintEl.classList.add("show");
-        isTyping = false;
-
-    }, 1500);
-
-});
 
 
 // ======================================
@@ -186,7 +183,7 @@ document.body.addEventListener("click", () => {
 
     if (currentChapter >= chapters.length - 1) return;
 
-    container.classList.add("fade");
+    isTransitioning = true;
 
     setTimeout(() => {
 
@@ -194,13 +191,11 @@ document.body.addEventListener("click", () => {
 
         showChapter(currentChapter);
 
-        container.classList.remove("fade");
         isTransitioning = false;
 
     }, 450);
 
 });
-
 // ======================================
 // Start
 // ======================================
