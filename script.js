@@ -68,6 +68,7 @@ const titleEl = document.getElementById("title");
 const subtitleEl = document.getElementById("subtitle");
 const hintEl = document.getElementById("hint");
 const container = document.querySelector(".container");
+const progressEl = document.getElementById("progress");
 
 // ======================================
 // Typewriter
@@ -75,8 +76,9 @@ const container = document.querySelector(".container");
 
 function typeWriter(element, text, speed, callback) {
 
+    element.classList.add("typing");
     element.textContent = "";
-
+    
     let i = 0;
 
     function type() {
@@ -91,13 +93,32 @@ function typeWriter(element, text, speed, callback) {
 
         } else {
 
-            if (callback) callback();
+            element.classList.remove("typing");
+
+            if (typeof callback === "function") {
+    callback();
+            }
+            
 
         }
 
     }
 
     type();
+
+}
+
+function updateProgress(){
+
+    let dots = "";
+
+    for(let i = 0; i < chapters.length; i++){
+
+        dots += (i === currentChapter) ? "● " : "○ ";
+
+    }
+
+    progressEl.textContent = dots;
 
 }
 
@@ -112,6 +133,7 @@ function showChapter(index){
     hintEl.classList.remove("show");
 
     const page = chapters[index];
+    updateProgress();
 
     chapterEl.textContent = page.chapter;
 
