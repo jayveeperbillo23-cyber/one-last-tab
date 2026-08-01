@@ -70,6 +70,7 @@ const subtitleEl = document.getElementById("subtitle");
 const hintEl = document.getElementById("hint");
 const container = document.querySelector(".container");
 const progressEl = document.getElementById("progress");
+const endingMessage = document.getElementById("endingMessage");
 
 // ======================================
 // Typewriter
