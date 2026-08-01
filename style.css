@@ -222,5 +222,11 @@ transform:translateY(0);
     50%{
         opacity:0;
     }
+}
+.progress{
+
+    transition:.35s ease;
+
+    letter-spacing:8px;
 
 }
